@@ -61,7 +61,7 @@ Plataforma orquestadora para miles de agentes impulsados por LLM que colaboran c
 
 ## Despliegue y plataforma
 - Kubernetes + Ingress + Service Mesh.
-- Mensajería (Kafka/NATS) para event-driven y desac acoplamiento.
+- Mensajería (Kafka/NATS) para event-driven y desacoplamiento.
 - Horizontal auto-scaling para orquestador y gateways de agentes.
 
 ## Roadmap incremental

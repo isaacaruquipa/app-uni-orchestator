@@ -77,6 +77,7 @@ Se agregó una base inicial en `backend/` con dos sistemas:
 - `backend/sistema_integral/`: módulos por dominio (académico, finanzas, marketing y publicaciones) y API de operaciones.
 - `backend/sistema_ia/`: registro básico de agentes, memoria de contexto y API de integración.
 - `backend/shared/`: modelos compartidos (`OperationResult`).
+- `backend/security/`: autenticación en memoria con emisión de tokens y autorización basada en roles/políticas.
 - `backend/main.py`: healthcheck consolidado de ambos sistemas.
 
 ### Pruebas mínimas

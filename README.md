@@ -83,3 +83,12 @@ Se agregó una base inicial en `backend/` con dos sistemas:
 - Archivo: `tests/test_backend_modules.py`
 - Ejecución:
   - `python -m unittest discover -v`
+
+### Seguridad implementada (base)
+- `backend/shared/security.py` incorpora autenticación OAuth/OIDC simplificada por proveedor:
+  - Validación de `iss` confiable para Google y Microsoft.
+  - Mapeo de `scope` y `roles` a permisos internos.
+- Se añadió control de autorización por permisos en operaciones relevantes:
+  - `academic:create_enrollment` requiere `academic:enrollment:create`.
+  - `sistema_ia.register_agent` requiere `ia:agent:register`.
+  - `sistema_ia.store_context` requiere `ia:context:write`.

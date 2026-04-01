@@ -27,7 +27,7 @@ class OrchestratorTestCase(unittest.TestCase):
         self.assertTrue(enrollment.success)
         self.assertEqual(enrollment.data["status"], "enrolled")
 
-        registration = orchestration.register_agent("agent-integral", "academic", "Registro académico")
+        registration = orchestration.register_agent("agent-integral", "academic", "Registro academico")
         self.assertTrue(registration.success)
 
         memory = orchestration.store_agent_context("agent-integral", {"intent": "enrollment"})

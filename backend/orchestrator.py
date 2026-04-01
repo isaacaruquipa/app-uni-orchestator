@@ -8,7 +8,6 @@ from backend.shared.models import OperationResult
 
 
 class HealthResponse(TypedDict):
-    service: str
     status: str
     model: NotRequired[str]
 
@@ -29,11 +28,9 @@ class BackendOrchestrator:
     def health(self) -> dict[str, HealthResponse]:
         return {
             self.integral_config.service_name: {
-                "service": self.integral_config.service_name,
                 "status": "ok",
             },
             self.ia_config.service_name: {
-                "service": self.ia_config.service_name,
                 "status": "ok",
                 "model": self.ia_config.default_model,
             },

@@ -1,4 +1,4 @@
-from typing import TypedDict
+from typing import NotRequired, TypedDict
 
 from backend.sistema_ia.config import SistemaIAConfig
 from backend.sistema_ia.service import AISystemService
@@ -7,10 +7,10 @@ from backend.sistema_integral.service import IntegralSystemService
 from backend.shared.models import OperationResult
 
 
-class HealthResponse(TypedDict, total=False):
+class HealthResponse(TypedDict):
     service: str
     status: str
-    model: str
+    model: NotRequired[str]
 
 
 class BackendOrchestrator:

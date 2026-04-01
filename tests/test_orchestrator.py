@@ -2,14 +2,19 @@ import unittest
 
 from backend.main import orchestrator
 from backend.orchestrator import BackendOrchestrator
+from backend.sistema_ia.config import SistemaIAConfig
+from backend.sistema_integral.config import SistemaIntegralConfig
 
 
 class OrchestratorTestCase(unittest.TestCase):
     def test_health_is_composed(self) -> None:
         health = orchestrator.health()
-        self.assertIn("sistema_integral", health)
-        self.assertIn("sistema_ia", health)
-        self.assertEqual(health["sistema_ia"]["model"], "llm-gateway-v1")
+        integral_name = SistemaIntegralConfig().service_name
+        ia_name = SistemaIAConfig().service_name
+
+        self.assertIn(integral_name, health)
+        self.assertIn(ia_name, health)
+        self.assertEqual(health[ia_name]["model"], SistemaIAConfig().default_model)
 
     def test_routing_operations_and_agents(self) -> None:
         orchestration = BackendOrchestrator()

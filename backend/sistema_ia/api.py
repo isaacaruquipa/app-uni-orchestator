@@ -20,7 +20,9 @@ def register_agent(
     return service.register_agent(agent_id=agent_id, domain=domain, description=description)
 
 
-def store_context(agent_id: str, context: dict, auth_context: AuthContext | None = None) -> OperationResult:
+def store_context(
+    agent_id: str, context: dict, auth_context: AuthContext | None = None
+) -> OperationResult:
     authz_result = authorize(auth_context=auth_context, required_permission="ia:context:write")
     if not authz_result.success:
         return authz_result

@@ -1,8 +1,16 @@
+from typing import TypedDict
+
 from backend.sistema_ia.config import SistemaIAConfig
 from backend.sistema_ia.service import AISystemService
 from backend.sistema_integral.config import SistemaIntegralConfig
 from backend.sistema_integral.service import IntegralSystemService
 from backend.shared.models import OperationResult
+
+
+class HealthResponse(TypedDict, total=False):
+    service: str
+    status: str
+    model: str
 
 
 class BackendOrchestrator:
@@ -18,7 +26,7 @@ class BackendOrchestrator:
         self.integral_config = integral_config or SistemaIntegralConfig()
         self.ia_config = ia_config or SistemaIAConfig()
 
-    def health(self) -> dict:
+    def health(self) -> dict[str, HealthResponse]:
         return {
             self.integral_config.service_name: {
                 "service": self.integral_config.service_name,
